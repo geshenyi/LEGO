@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/util 
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<import resource="lego-mvc-view-config.xml" />
+	<import resource="lego-mvc-interceptor-config.xml" />
+
+
+	<mvc:annotation-driven content-negotiation-manager="cnManager">
+        <mvc:argument-resolvers>
+            <bean class="com.ccorp.poc.lego.interceptor.AtmosphereResolver" />
+        </mvc:argument-resolvers>
+	</mvc:annotation-driven>
+
+    <mvc:resources mapping="/images/**" location="/images/" />
+    <mvc:resources mapping="/bower_components/**" location="/bower_components/" />
+    <mvc:resources mapping="/js/**" location="/js/" />
+    <mvc:resources mapping="/scripts/**" location="/scripts/" />
+    <mvc:resources mapping="/styles/**" location="/styles/" />
+    <mvc:resources mapping="/fonts/**" location="/fonts/" />
+    <mvc:resources mapping="/views/**" location="/views/" />
+    <mvc:resources mapping="/css/**" location="/css/" />
+    <mvc:resources mapping="/plugins/**" location="/plugins/" />
+    <mvc:resources mapping="/**" location="/"/>
+
+
+    <!-- declaration of static resources -->
+	<!--<mvc:resources mapping="/images/**" location="/images/" />-->
+	<!--<mvc:resources mapping="/bower_components/**" location="/bower_components/" />-->
+	<!--<mvc:resources mapping="/js/**" location="/js/" /> -->
+	<!--<mvc:resources mapping="/scripts/**" location="/scripts/" />-->
+	<!--<mvc:resources mapping="/styles/**" location="/styles/" /> -->
+	<!--<mvc:resources mapping="/fonts/**" location="/fonts/" /> -->
+	<!--<mvc:resources mapping="/views/**" location="/views/" />-->
+	<!--<mvc:resources mapping="/regression/**" location="/regression/"/>-->
+	<!--<mvc:resources mapping="/css/**" location="/css/" />-->
+	<!--<mvc:resources mapping="/plugins/**" location="/plugins/" /> -->
+    <!--<mvc:resources mapping="/tes/**" location="/"/>-->
+    <!--<mvc:resources mapping="/riesmain/**" location="/riesling/"/> -->
+
+
+
+</beans>

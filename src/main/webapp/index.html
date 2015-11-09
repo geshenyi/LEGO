@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/pure.css"/>
+    <link rel="stylesheet" href="bower_components/jointjs/dist/joint.css">
+    <link rel="stylesheet" href="css/tooledViewPlugin.css">
+    <link rel="stylesheet/less" type="text/css" href="css/index.less"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/semantic-ui/dist/semantic.css"/>
+</head>
+<body>
+<!--<div id="log">-->
+<!--Log:-->
+    <!--<div id="content">-->
+
+    <!--</div>-->
+<!--</div>-->
+<div class="ui modal" id="log-dialog">
+    <div id="log-label">Test Log Output:</div>
+    <div id="log-content">
+
+    </div>
+</div>
+<div id="app">
+    <div class="pure-g">
+        <div class="pure-u-1-4">
+            <div class="padding2 border-grey margin1 height900 backgroud-gradient-greywhite" id="component-view">
+                <div class="pure-g">
+                    <!--<div class="pure-u-1-2">-->
+                    <!--<div class="padding2 border-green margin1 hoverable component">-->
+                    <!--Build Request-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="pure-u-1-2">-->
+                    <!--<div class="padding2 border-green margin1 hoverable component">-->
+                    <!--Check Response-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="pure-u-1-2">-->
+                    <!--<div class="padding2 border-green margin1 hoverable component">-->
+                    <!--Check Response-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+        <div class="pure-u-3-4">
+            <div class="padding2 border-grey margin1 height900 backgroud-gradient-greywhite">
+                <div id="myholder">
+
+                </div>
+                <div class="pure-u-1 text-align-right">
+                    <button class="ui right labeled icon button" id="button-play">
+                        <i class="play icon"></i>
+                        PLAY
+                    </button>
+                    <button class="ui right labeled icon button" id="button-play-ui">
+                        <i class="play icon"></i>
+                        PLAY UI
+                    </button>
+                </div>
+                <!--<div class="pure-u-1-2 text-align-right">-->
+
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+    <div class="ui modal pure-g" id="buildRequestModal">
+        <div class="ui input pure-u-1">
+            <input type="text" placeholder="Endpoint..." id="input-endpoint">
+        </div>
+        <div class="ui input pure-u-1">
+            <input type="text" placeholder="Method..." id="input-method">
+        </div>
+        <div class="pure-u-1" id="header-div">
+
+        </div>
+        <button class="ui right labeled icon button button-save">
+            <i class="save icon"></i>
+            SAVE
+        </button>
+    </div>
+
+    <div class="ui modal pure-g" id="checkResponseModal">
+        <div class="ui input pure-u-1-2">
+            <input type="text" placeholder="Label..." id="input-response-code-label">
+        </div>
+        <div class="ui input pure-u-1-2">
+            <input type="text" placeholder="Response Code..." id="input-response-code-value">
+        </div>
+        <button class="ui right labeled icon button button-save">
+            <i class="save icon"></i>
+            SAVE
+        </button>
+    </div>
+
+    <div class="ui modal pure-g" id="setCookieModal">
+        <div class="script pure-u-1">Script</div>
+        <div class="ui form">
+            <div class="field">
+                <textarea id="setcookie-body"></textarea>
+            </div>
+        </div>
+        <button class="ui right labeled icon button button-save">
+            <i class="save icon"></i>
+            SAVE
+        </button>
+    </div>
+
+    <div class="ui modal pure-g" id="disableSurveyModal">
+        <div class="script pure-u-1">Script</div>
+        <div class="ui form">
+            <div class="field">
+                <textarea id="disablesurvey-body"></textarea>
+            </div>
+        </div>
+        <button class="ui right labeled icon button button-save">
+            <i class="save icon"></i>
+            SAVE
+        </button>
+    </div>
+
+    <div class="ui modal pure-g" id="artistPageModal">
+        <div class="script pure-u-1">Script</div>
+        <div class="ui form">
+            <div class="field">
+                <textarea id="artistpage-body"></textarea>
+            </div>
+        </div>
+        <button class="ui right labeled icon button button-save">
+            <i class="save icon"></i>
+            SAVE
+        </button>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/less.js"></script>
+<script type="text/javascript" src="bower_components/jquery/jquery.js"></script>
+<script type="text/javascript" src="bower_components/lodash/lodash.js"></script>
+<script type="text/javascript" src="bower_components/backbone/backbone.js"></script>
+<script type="text/javascript" src="bower_components/jointjs/dist/joint.js"></script>
+<script type="text/javascript" src="bower_components/semantic-ui/dist/semantic.js"></script>
+<script type="text/javascript" src="js/removable_devs.js"></script>
+<script type="text/javascript" src="js/component.js"></script>
+<script type="text/javascript" src="bower_components/jquery-atmosphere/jquery.atmosphere.js"></script>
+<script type="text/template" id="component">
+    <div class="padding2 border-black margin1 hoverable component">
+        <%= name %>
+    </div>
+</script>
+<script type="text/template" id="BuildRequestModalScript">
+
+
+</script>
+<script type="text/template" id="header">
+    <div class="ui input pure-u-1-2">
+        <input type="text" placeholder="Header Name..." class="input-header-name" value="<%= name %>">
+    </div>
+    <div class="ui input pure-u-1-2">
+        <input type="text" placeholder="Header Value..." class="input-header-value" value="<%= value %>">
+    </div>
+</script>
+<script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/init-atomsphere.js"></script>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+    <appender name="alllog" class="org.apache.log4j.DailyRollingFileAppender">      
+        <param name="File" value="../logs/tesng/execution.log" />    
+        <param name="Append" value="true" />   
+            <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">    
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss}:%p %X{dyeId} %X{uri} %t %c - %m%n" />    
+        </layout>    
+    </appender>
+    
+    <appender name="performancelog" class="org.apache.log4j.DailyRollingFileAppender">      
+        <param name="File" value="../logs/tesng/performance.log" />    
+        <param name="Append" value="true" />   
+            <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">    
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss}:%p %X{dyeId}  %X{uri}  %t %c - %m%n" />    
+        </layout>    
+    </appender>
+
+    
+    <logger name="dataProcessor" additivity="false">       
+        <level value="info" />       
+        <appender-ref ref="alllog" />       
+    </logger>
+    <logger name="model" additivity="false">
+        <level value="info" />
+        <appender-ref ref="alllog" />       
+    </logger>
+    <logger name="controller" additivity="false">       
+        <level value="info" />
+        <appender-ref ref="alllog" />       
+    </logger>
+    <logger name="service" additivity="false">       
+        <level value="info" />
+        <appender-ref ref="alllog" />       
+    </logger>
+    <logger name="repository" additivity="false">
+        <level value="info" />
+        <appender-ref ref="alllog" />       
+    </logger>
+     <logger name="performance" additivity="false">       
+        <level value="info" />
+        <appender-ref ref="performancelog" />       
+    </logger>
+    <root>
+        <level value="debug"/>
+        <appender-ref ref="alllog"/>
+    </root>
+
+</log4j:configuration>
+
+
